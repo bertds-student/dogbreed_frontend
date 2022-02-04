@@ -47,6 +47,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./frontend
-          file : ./frontend/dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
