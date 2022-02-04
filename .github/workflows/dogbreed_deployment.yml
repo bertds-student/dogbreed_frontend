@@ -10,18 +10,8 @@ on:
     branches: ['main']
 
 env:
-  CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-
-  CLIENT_ID: fc936720-f360-4363-8a31-5832ed590b4d
-  TENANT_ID: 4ded4bb1-6bff-42b3-aed7-6a36a503bf7a
-  WORKSPACE_NAME: bert-desutter-ml
-  RESOURCE_GROUP: 04-AzureML
-  SUBSCRIPTION_ID: ca191df1-2972-47fc-b8c2-cc81364de246
-
   ANIMALS: Boxer,German_Sheperd, Newfoundland 
-  TRAIN_SET_NAME: dogbreed-training-set
-  TEST_SET_NAME: dogbreed-testing-set
-  MODEL_NAME: dogbreed-cnn
+
 
 jobs:
   docker-build-and-push-frontend:
@@ -56,6 +46,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: /frontend
+          file : /frontend/dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
