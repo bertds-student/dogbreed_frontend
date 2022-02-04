@@ -11,6 +11,8 @@ on:
 
 env:
   ANIMALS: Boxer,German_Sheperd, Newfoundland 
+  DOCKER_BUILDKIT : 0
+  COMPOSE_DOCKER_CLI_BUILD : 0
 
 
 jobs:
