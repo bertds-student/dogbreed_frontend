@@ -1,0 +1,13 @@
+# frontend/Dockerfile
+FROM python:3.9
+
+WORKDIR /app
+
+COPY ./requirements.dev.txt /code/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+COPY . .
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "main.py"]
